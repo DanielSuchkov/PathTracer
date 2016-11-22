@@ -4,21 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RayTracer.DistanceFields
-{
-    public class MaterialChange : DistanceField
-    {
+namespace RayTracer.DistanceFields {
+    public class MaterialChange : DistanceField {
         public DistanceField Field { get; set; }
         public MaterialSettings MaterialSettings { get; set; }
 
-        public MaterialChange(DistanceField field, MaterialSettings materialSettings)
-        {
+        public MaterialChange(DistanceField field, MaterialSettings materialSettings) {
             Field = field;
             MaterialSettings = materialSettings;
         }
 
-        public override SampleResult Sample(Vector pos)
-        {
+        public override SampleResult Sample(Vec3 pos) {
             var result = Field.Sample(pos);
             result.Roughness = MaterialSettings.Roughness;
             result.Color = MaterialSettings.GetColor(pos);

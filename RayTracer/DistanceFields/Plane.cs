@@ -5,22 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace RayTracer.DistanceFields
-{
-    public class Plane : DistanceField
-    {
-        public Vector Normal { get; set; }
+namespace RayTracer.DistanceFields {
+    public class Plane : DistanceField {
+        public Vec3 Normal { get; set; }
         public double Offset { get; set; }
 
-        public Plane(Vector normal, double offset)
-        {
+        public Plane(Vec3 normal, double offset) {
             Normal = normal.Normalize();
             Offset = offset;
         }
 
-        public override SampleResult Sample(Vector pos)
-        {
-            return new SampleResult {Distance = pos.Dot(Normal) - Offset, Normal = Normal };
+        public override SampleResult Sample(Vec3 pos) {
+            return new SampleResult { Distance = pos.Dot(Normal) - Offset, Normal = Normal };
         }
     }
 }

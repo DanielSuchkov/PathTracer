@@ -8,26 +8,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Collections.Concurrent;
 
-namespace RayTracer
-{
+namespace RayTracer {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
+    public partial class MainWindow : Window {
         WriteableBitmap bitmap;
         DisplayMethod displayMethod;
         Thread backgroundThread;
 
-        public static Vector Up;
-        public static Vector Forward;
-        public static Vector Right;
+        public static Vec3 Up;
+        public static Vec3 Forward;
+        public static Vec3 Right;
         public static double FocalLength = 1;
-        public static int OverScan = 1;
 
 
-        public MainWindow()
-        {
+        public MainWindow() {
             Forward = (Model.Target - Model.Eye).Normalize();
             Right = Forward.Cross(Model.WorldUp).Normalize();
             Up = Right.Cross(Forward).Normalize();
@@ -42,31 +38,24 @@ namespace RayTracer
             backgroundThread.Start();
         }
 
-        private void Stop(object sender, EventArgs e)
-        {
+        private void Stop(object sender, EventArgs e) {
             backgroundThread.Abort();
         }
 
-        private void CompositionTarget_Rendering(object sender, EventArgs e)
-        {
-            if (bitmap.PixelWidth != (int)Content.ActualWidth * OverScan || bitmap.PixelHeight != (int)Content.ActualHeight * OverScan)
-            {
+        private void CompositionTarget_Rendering(object sender, EventArgs e) {
+            if (bitmap.PixelWidth != (int)Content.ActualWidth || bitmap.PixelHeight != (int)Content.ActualHeight) {
                 UpdateSize();
             }
 
             var start = DateTime.Now;
-            while ((DateTime.Now - start).Milliseconds < 16)
-            {
+            while ((DateTime.Now - start).Milliseconds < 16) {
                 displayMethod.DrawPiece(bitmap);
             }
         }
 
-        private void CalculateRays()
-        {
-            while (true)
-            {
-                Parallel.For(0, 1000, (_) =>
-                {
+        private void CalculateRays() {
+            while (true) {
+                Parallel.For(0, 1000, (_) => {
                     var x = ThreadSafeRandom.NextDouble() - 0.5;
                     var y = ThreadSafeRandom.NextDouble() - 0.5;
 
@@ -80,17 +69,13 @@ namespace RayTracer
             }
         }
 
-        private void UpdateSize()
-        {
-            bitmap = BitmapFactory.New((int)Content.ActualWidth * OverScan, (int)Content.ActualHeight * OverScan);
+        private void UpdateSize() {
+            bitmap = BitmapFactory.New((int)Content.ActualWidth, (int)Content.ActualHeight);
             ImageContainer.Source = bitmap;
             var pixelSize = 1.0 / Math.Max(bitmap.PixelWidth, bitmap.PixelHeight);
-            if (displayMethod == null)
-            {
-                displayMethod = new AveragedPixels(1);
-            }
-            else
-            {
+            if (displayMethod == null) {
+                displayMethod = new AveragedPixels();
+            } else {
                 displayMethod.Reset(pixelSize);
             }
         }

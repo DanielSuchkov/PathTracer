@@ -4,20 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RayTracer.DistanceFields
-{
-    public class Subtraction : DistanceField
-    {
+namespace RayTracer.DistanceFields {
+    public class Subtraction : DistanceField {
         public DistanceField First { get; set; }
         public DistanceField Second { get; set; }
-        public Subtraction(DistanceField first, DistanceField second)
-        {
+        public Subtraction(DistanceField first, DistanceField second) {
             First = first;
             Second = second;
         }
 
-        public override SampleResult Sample(Vector pos)
-        {
+        public override SampleResult Sample(Vec3 pos) {
             var secondResult = Second.Sample(pos);
             secondResult.Distance = -secondResult.Distance;
             secondResult.Normal = -secondResult.Normal;
