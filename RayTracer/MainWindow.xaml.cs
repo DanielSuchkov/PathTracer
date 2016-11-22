@@ -63,7 +63,7 @@ namespace RayTracer {
                     var source = Model.Eye - Forward * FocalLength;
                     var ray = new Ray(source, pixel - source);
 
-                    var result = ray.March(Model.Field, 0.01, 1000, Model.Fog);
+                    var result = ray.March(Model.Field, 0.01, 200.0, Model.Fog);
                     displayMethod.AddPoint(new ColoredPoint(result.Color, x, -y));
                 });
             }

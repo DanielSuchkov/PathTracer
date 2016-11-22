@@ -55,7 +55,10 @@ namespace RayTracer {
                 bouncedColor = new Vec3(
                     reflectionResult.Color.X * rAmount * (1 - result.Absorbance),
                     reflectionResult.Color.Y * gAmount * (1 - result.Absorbance),
-                    reflectionResult.Color.Z * bAmount * (1 - result.Absorbance));
+                    reflectionResult.Color.Z * bAmount * (1 - result.Absorbance)
+                );
+            } else {
+                bouncedColor = new Vec3(1.0, 0.0, 0.0);
             }
 
             var fogAmount = DistanceTraveled / maximum;

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RayTracer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="248.961" Width="255.831">
     <Grid x:Name="Content">
         <Image x:Name="ImageContainer" Width="Auto" Height="Auto"/>
     </Grid>

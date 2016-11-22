@@ -13,6 +13,7 @@ namespace RayTracer {
 
         public static Vec3 Fog = Vec3.Zero;
 
+        static Vec3 blackCellColor = new Vec3(0.5, 0.30, 0.15);
         public static MaterialSettings CheckerBoard = new MaterialSettings {
             GetColor = (Vec3 pos) => {
                 var sum = (int)Math.Floor(pos.X) + (int)Math.Floor(pos.Z);
@@ -20,13 +21,13 @@ namespace RayTracer {
                 if (white) {
                     return Vec3.One;
                 } else {
-                    return Vec3.Zero;
+                    return blackCellColor;
                 }
             }
         };
 
         public static DistanceField Field =
-            (new Sphere(1) * new MaterialSettings { Source = true, GetColor = _ => new Vec3(4, 4, 4) } + new Vec3(-5, 5, -5)) +
+            (new Sphere(2) * new MaterialSettings { Source = true, GetColor = _ => new Vec3(15, 15, 15) } + new Vec3(0, 5, -8)) +
             (new Sphere(0.5) * new MaterialSettings { Roughness = 0, Reflectance = 1 } + new Vec3(1.5, 0, 0)) +
             (new Sphere(0.5) * new MaterialSettings { Roughness = 0, Reflectance = 0.5 } + new Vec3(0, 0, 0)) +
             (new Sphere(0.5) * new MaterialSettings { Roughness = 0, Reflectance = 0 } + new Vec3(-1.5, 0, 0)) +
@@ -34,7 +35,7 @@ namespace RayTracer {
             (new Sphere(0.25) * new MaterialSettings { Roughness = 1, Reflectance = 0, GetColor = _ => new Vec3(0, 1, 0) } + new Vec3(0, -0.25, -0.75)) +
             (new Sphere(0.25) * new MaterialSettings { Roughness = 1, Reflectance = 0, GetColor = _ => new Vec3(0, 0, 1) } + new Vec3(1, -0.25, -0.75)) +
             (new Plane(new Vec3(0, 0, -1), -2)) +
-            (new Plane(WorldUp, -0.5));
+            (new Plane(WorldUp, -0.5) * CheckerBoard);
 
     }
 }
