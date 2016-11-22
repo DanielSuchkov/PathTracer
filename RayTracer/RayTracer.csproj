@@ -76,7 +76,7 @@
     <Compile Include="DisplayMethod.cs" />
     <Compile Include="DistanceFields\SampleResult.cs" />
     <Compile Include="Ray.cs" />
-    <Compile Include="Vector.cs" />
+    <Compile Include="Vec3.cs" />
     <Compile Include="DistanceFields\Translation.cs" />
     <Compile Include="DistanceFields\Union.cs" />
     <Compile Include="DistanceFields\DistanceField.cs" />
