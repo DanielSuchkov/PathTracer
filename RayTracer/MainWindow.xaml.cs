@@ -1,12 +1,10 @@
-﻿using RayTracer.DistanceFields;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Collections.Concurrent;
+using Newtonsoft.Json;
 
 namespace RayTracer {
     /// <summary>

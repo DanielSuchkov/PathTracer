@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RayTracer", "RayTracer\RayTracer.csproj", "{88463C88-5B03-4CFD-A38A-CC3A7383E745}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zhucai.LambdaParser", "Zhucai.LambdaParser\Zhucai.LambdaParser.csproj", "{8807E655-0684-4AE0-A07B-B469ADBE9BDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonScene", "JsonScene\JsonScene.csproj", "{E52A8E22-039E-4DB7-8368-703F49053343}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{88463C88-5B03-4CFD-A38A-CC3A7383E745}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88463C88-5B03-4CFD-A38A-CC3A7383E745}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88463C88-5B03-4CFD-A38A-CC3A7383E745}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8807E655-0684-4AE0-A07B-B469ADBE9BDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8807E655-0684-4AE0-A07B-B469ADBE9BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8807E655-0684-4AE0-A07B-B469ADBE9BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8807E655-0684-4AE0-A07B-B469ADBE9BDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E52A8E22-039E-4DB7-8368-703F49053343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E52A8E22-039E-4DB7-8368-703F49053343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E52A8E22-039E-4DB7-8368-703F49053343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E52A8E22-039E-4DB7-8368-703F49053343}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

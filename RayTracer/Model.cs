@@ -26,16 +26,16 @@ namespace RayTracer {
             }
         };
 
-        public static DistanceField Field =
-            (new Sphere(2) * new MaterialSettings { Source = true, GetColor = _ => new Vec3(15, 15, 15) } + new Vec3(0, 5, -8)) +
-            (new Sphere(0.5) * new MaterialSettings { Roughness = 0, Reflectance = 1 } + new Vec3(1.5, 0, 0)) +
-            (new Sphere(0.5) * new MaterialSettings { Roughness = 0, Reflectance = 0.5 } + new Vec3(0, 0, 0)) +
-            (new Sphere(0.5) * new MaterialSettings { Roughness = 0, Reflectance = 0 } + new Vec3(-1.5, 0, 0)) +
-            (new Sphere(0.25) * new MaterialSettings { Roughness = 1, Reflectance = 0, GetColor = _ => new Vec3(1, 0, 0) } + new Vec3(-1, -0.25, -0.75)) +
-            (new Sphere(0.25) * new MaterialSettings { Roughness = 1, Reflectance = 0, GetColor = _ => new Vec3(0, 1, 0) } + new Vec3(0, -0.25, -0.75)) +
-            (new Sphere(0.25) * new MaterialSettings { Roughness = 1, Reflectance = 0, GetColor = _ => new Vec3(0, 0, 1) } + new Vec3(1, -0.25, -0.75)) +
-            (new Plane(new Vec3(0, 0, -1), -2)) +
-            (new Plane(WorldUp, -0.5) * CheckerBoard);
+        public static DistanceField Field = DistanceField.LoadFromJson(@"d:/test_scene.json");
+            //(new Sphere(2) * new MaterialSettings { Source = true, GetColor = _ => new Vec3(15, 15, 15) } + new Vec3(0, 5, -8)) +
+            //(new Sphere(0.5) * new MaterialSettings { Roughness = 0, Reflectance = 1 } + new Vec3(1.5, 0, 0)) +
+            //(new Sphere(0.5) * new MaterialSettings { Roughness = 0, Reflectance = 0.5 } + new Vec3(0, 0, 0)) +
+            //(new Sphere(0.5) * new MaterialSettings { Roughness = 0, Reflectance = 0 } + new Vec3(-1.5, 0, 0)) +
+            //(new Sphere(0.25) * new MaterialSettings { Roughness = 1, Reflectance = 0, GetColor = _ => new Vec3(1, 0, 0) } + new Vec3(-1, -0.25, -0.75)) +
+            //(new Sphere(0.25) * new MaterialSettings { Roughness = 1, Reflectance = 0, GetColor = _ => new Vec3(0, 1, 0) } + new Vec3(0, -0.25, -0.75)) +
+            //(new Sphere(0.25) * new MaterialSettings { Roughness = 1, Reflectance = 0, GetColor = _ => new Vec3(0, 0, 1) } + new Vec3(1, -0.25, -0.75)) +
+            //(new Plane(new Vec3(0, 0, -1), -2)) +
+            //(new Plane(WorldUp, -0.5) * CheckerBoard);
 
     }
 }
